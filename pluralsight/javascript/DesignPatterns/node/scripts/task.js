@@ -1,22 +1,23 @@
 'use strict';
 
-var Task = function (param1, param2) {
-    this.param1 = param1;
+var Task = function (name, param2) {
+    this.name = name;
     this.param2 = param2;
+
+    this.save = function() {
+        console.log("Saving task: \" " + this.name + "\" ");
+
+    }
 }
 
-Object.defineProperty(Task, 'toString', {
-    value: function() {
-        return this.param1 + ' ' + this.param2
-    },
-    writable: false,
-    enumerable: true,
-    configurable: true
-});
+Task.prototype.completed = false;
 
-Task.completed = false;
-Task.prototype.completed =  function() {
+Task.prototype.complete =  function() {
     this.completed = true;
+}
+
+Task.prototype.toString =  function() {
+    return this.name + " " + this.param2 + " " + this.completed;
 }
 
 module.exports = Task;
