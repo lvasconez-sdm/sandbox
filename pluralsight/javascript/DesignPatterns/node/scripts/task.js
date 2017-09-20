@@ -1,12 +1,11 @@
 'use strict';
 
-var Task = function (name, param2) {
+var Task = function (name, description) {
     this.name = name;
-    this.param2 = param2;
+    this.description = description;
 
     this.save = function() {
-        console.log("Saving task: \" " + this.name + "\" ");
-
+        console.log("Saving task \"" + this.name + "\"...");
     }
 }
 
@@ -17,7 +16,7 @@ Task.prototype.complete =  function() {
 }
 
 Task.prototype.toString =  function() {
-    return this.name + " " + this.param2 + " " + this.completed;
+    return this.name + " (" + this.description + "), completed = [" + this.completed + "]";
 }
 
 module.exports = Task;
