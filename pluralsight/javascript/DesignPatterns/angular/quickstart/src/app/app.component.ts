@@ -26,12 +26,15 @@ export class Hero {
 })
 export class AppComponent {
    title: string;
-   myHero: Hero;
+   selectedHero: Hero;
    heroes: Hero[];
 
    constructor() {
       this.title = 'Tour of Heroes';
       this.heroes = HEROES;
-      this.myHero = this.heroes[0];
+   }
+
+   onSelect(hero: Hero): void {
+     this.selectedHero = hero;
    }
 }
