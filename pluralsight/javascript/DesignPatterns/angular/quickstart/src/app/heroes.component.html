@@ -1,0 +1,10 @@
+<h1>Heroes</h1>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes"
+        [class.selected]="hero == selectedHero"
+        (click)=onSelect(hero)>
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+<p *ngIf="heroes.length > 3">There are many heroes!</p>
+<hero-detail [hero]="selectedHero">Loading...</hero-detail>
