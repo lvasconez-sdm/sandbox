@@ -1,6 +1,5 @@
 import {
     Component,
-    Input,
     OnInit
 } from '@angular/core';
 
@@ -21,7 +20,7 @@ import { HeroService } from './hero.service';
     styleUrls: ['app/hero-detail.component.css']
 })
 export class HeroDetailComponent implements OnInit {
-    @Input() hero: Hero;
+    hero: Hero;
 
     constructor(
         private heroService: HeroService,

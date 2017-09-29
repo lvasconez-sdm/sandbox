@@ -1,34 +1,42 @@
 import {
-    Component,
-    OnInit
-  } from '@angular/core';
+  Component,
+  OnInit
+} from '@angular/core';
 
-  import { Hero } from './hero';
-  import { HeroService } from './hero.service';
+import { Router } from '@angular/router';
 
-  @Component({
-    selector: 'my-heroes',
-    templateUrl: 'app/heroes.component.html',
-    styleUrls: ['app/heroes.component.css'],
-  })
-  export class HeroesComponent implements OnInit {
-     selectedHero: Hero;
-     heroes: Hero[];
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
-    constructor(private heroService: HeroService) {
-      this.heroes = [ ];
-    }
+@Component({
+  selector: 'my-heroes',
+  templateUrl: 'app/heroes.component.html',
+  styleUrls: ['app/heroes.component.css'],
+})
+export class HeroesComponent implements OnInit {
+  selectedHero: Hero;
+  heroes: Hero[];
 
-    ngOnInit(): void {
-      this.getHeroes();
-    }
+  constructor(
+    private heroService: HeroService,
+    private router: Router) {
+    this.heroes = [ ];
+  }
 
-    getHeroes(): void {
-      this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-      //this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
-    }
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
-     onSelect(hero: Hero): void {
-       this.selectedHero = hero;
-    }
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    // this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
+  goToDetail(): void {
+    this.router.navigate(['/detail', this.selectedHero.id])
+  }
 }
