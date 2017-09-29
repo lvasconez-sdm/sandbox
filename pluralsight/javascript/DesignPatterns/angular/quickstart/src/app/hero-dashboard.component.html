@@ -1,9 +1,9 @@
 <h3>Top Heroes</h3>
 <div>
-    <div *ngFor="let hero of heroes">
+    <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]">
         <div>
-            <a routerLink='/details/{{hero.id}}'><h4>{{hero.name}}</h4></a>
+            <a ><h4>{{hero.name}}</h4></a>
         </div>
-    </div>
+    </a>
 </div>
 <router-outlet></router-outlet>
