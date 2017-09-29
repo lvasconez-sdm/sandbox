@@ -12,6 +12,7 @@ import { HeroService } from './hero.service';
     styleUrls: ['app/hero-dashboard.component.css']
 })
 export class HeroDashboardComponent implements OnInit {
+
     heroes: Hero[];
 
     constructor (private heroService: HeroService) {

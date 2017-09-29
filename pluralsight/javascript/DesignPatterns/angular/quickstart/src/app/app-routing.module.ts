@@ -25,10 +25,11 @@ const ROUTES: Routes = [
     {
         path: 'detail/:id',
         component: HeroDetailComponent
-    }];
+    }
+];
 
-    @NgModule({
-        imports: [ RouterModule.forRoot(ROUTES) ],
-        exports: [ RouterModule ]
-    })
-    export class AppRoutingModule {}
+@NgModule({
+    imports: [ RouterModule.forRoot(ROUTES) ],
+    exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
