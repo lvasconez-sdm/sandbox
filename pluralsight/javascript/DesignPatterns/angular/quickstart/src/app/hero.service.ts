@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {
+    Http,
+    Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -9,6 +11,7 @@ import { HEROES } from './mock-heroes';
 @Injectable()
 export class HeroService {
 
+    private headers = new Headers({'Content-Type': 'application/json'});
     heroesUrl = '/api/heroes';
 
     constructor(private http: Http) {}
@@ -32,6 +35,15 @@ export class HeroService {
                         .then(response => response.json().data as Hero)
                         .catch(this.handleError);
     }
+
+    update(hero: Hero): Promise<Hero> {
+        const url = `${this.heroesUrl}/${hero.id}`;
+        return this.http
+        .put(url, JSON.stringify(hero), { headers: this.headers})
+        .toPromise()
+        .then(() => hero)
+        .catch(this.handleError);
+}
 
     getHeroesMock(): Promise<Hero[]> {
         return Promise.resolve(HEROES);
