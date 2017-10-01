@@ -25,6 +25,14 @@ export class HeroService {
         return Promise.reject(error.message || error);
     }
 
+    getHero(id: number): Promise<Hero> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.get(url)
+                        .toPromise()
+                        .then(response => response.json().data as Hero)
+                        .catch(this.handleError);
+    }
+
     getHeroesMock(): Promise<Hero[]> {
         return Promise.resolve(HEROES);
     }
@@ -35,7 +43,7 @@ export class HeroService {
         });
     }
 
-    getHero(id: number): Promise<Hero> {
+    getHeroMock(id: number): Promise<Hero> {
         return this.getHeroesMock()
                    .then(heroes => heroes.find(hero => hero.id === id));
     }
