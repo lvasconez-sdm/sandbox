@@ -43,7 +43,23 @@ export class HeroService {
         .toPromise()
         .then(() => hero)
         .catch(this.handleError);
-}
+    }
+
+    create(heroName: string): Promise<Hero> {
+        return this.http
+        .post(this.heroesUrl, JSON.stringify({name: heroName}), {headers: this.headers})
+        .toPromise()
+        .then(res => res.json().data as Hero)
+        .catch(this.handleError);
+    }
+
+    delete(id: number): Promise<void> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+        .toPromise()
+        .then(() => null)
+        .catch(this.handleError);
+    }
 
     getHeroesMock(): Promise<Hero[]> {
         return Promise.resolve(HEROES);
