@@ -1,0 +1,9 @@
+<div>
+    <h4>Hero Search:</h4>
+    <input #heroName (keyup)="search(heroName.value)"/>
+    <div *ngIf="heroesFound" >
+        <li *ngFor="let hero of heroesFound | async" [routerLink]="['/detail', hero.id]" >
+            <a>{{hero.name}}</a>
+        </li>
+    </div>
+</div>
