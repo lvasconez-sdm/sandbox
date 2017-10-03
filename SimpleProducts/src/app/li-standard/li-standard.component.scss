@@ -1,0 +1,190 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.vr {
+    display: block;
+    width: 100%;
+    height: 480px; /* TODO: supply heights for each breakpoint */
+    @include grid-xs {
+       height: auto;
+    }        
+}
+.view-icons {
+    color: $gray-dark;
+}
+li {
+    color: rgb(0, 58, 93);
+    padding: 0;
+}
+.btn-group.products,
+.btn-group.material-colors {
+     display: block;
+     width: 100%;
+}
+.dropdown-toggle.products,
+.dropdown-toggle.material-colors {
+    @include grid-lg {
+       min-width: 100%;
+   }        
+
+   display: flex;
+   flex-direction: row;
+   flex-grow: 0;
+   flex-shrink: 1;
+   flex-wrap: nowrap;
+   align-items: center;   
+}
+.dropdown-toggle.products .label {
+    display: flex;
+    flex-grow: 1;
+    text-align: left;
+}
+.dropdown-toggle.material-colors .label {
+    display: flex;
+    flex-grow: 1;
+    text-align: left;
+}
+.dropdown-menu {
+    padding: 0;
+    width: 100%;
+}
+.dropdown-menu {
+    background-color: #fff;
+    
+    max-height: 322px;
+    @include grid-xs {
+        min-width: 100%;
+    }        
+    overflow-y: auto;
+}
+.dropdown-menu.material-colors {
+}
+.item-row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.item-row:hover {
+    cursor: pointer;
+    background-color: #00a1e0;
+    color: #fff;
+}
+.item {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+.item img {
+    border: 1px solid #eee;
+    margin: 2px;
+}
+.item.label {
+    display: flex;
+    @include grid-lg {
+        display: block;
+    }    
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    line-height: 20px;
+    font-size: 14px; /* this should be a font-1, font-2, font-3 type thing */
+    padding: 0 4px;
+}
+.item.price {
+    padding: 8px;
+}
+.technology {
+    display: inline;
+    font-weight: bold;
+}
+.apply-to-all {
+    margin: 4px 0;
+    font-size: .8em;
+    text-align: right;
+    @include grid-xs {
+        min-width: 100%;
+    }
+}
+.fa {
+    color: #aaa;
+}
+.product-wizard {
+    cursor: pointer;
+}
+.dimensions {
+    position: relative;
+    top: -8px; /* WTF is this spacing coming from? */
+
+    background-color: #4776BC;
+    color: #ffffff;
+}
+.dimensions label,
+.dimensions a {
+    color: #ffffff;
+}
+.dimensions a {
+    /*border: 1px solid #ffffff;*/
+    /*text-decoration: underline;*/
+}
+.dimensions .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-left: .3em solid transparent;
+}
+input.quantity {
+    max-width: 70px;
+    text-align: center;
+    vertical-align: middle; /* to be compatible with .btn */
+}
+.minus,
+.plus {
+    width: 38px;
+    height: 38px;
+}
+.all-offers {
+    display: inline-block;
+    font-size: .8em;
+    line-height: 19px;
+}
+.all-offers a {
+    display: block;
+}
+.summary {
+    flex-grow: 1;
+
+    .shortcuts {
+        display: flex;
+        flex-grow: 0;
+        line-height: 48px;
+    }
+    .subtotal.label {
+        display: flex;
+        flex-grow: 1;
+        text-align: right;
+        font-weight: bold;
+        font-size: 1.5em;
+        line-height: 48px;
+    }    
+    .subtotal.value {
+        padding-left: 8px; // TODO: this should be a factor from bootstrap
+        color: $brand-secondary;
+    }
+    .summary-row {
+        width: 100%;
+    }
+}
+.filename {
+    word-break: break-all;
+    font-size: 1.2em;
+}

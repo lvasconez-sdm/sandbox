@@ -1,0 +1,15 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.btn.add-files .label,
+.btn.delivery .label {
+    display: inline-block;
+    text-transform: uppercase;
+    min-width: 180px !important;
+    @include grid-xs {
+        min-width: 134px !important; /* NOTE: adjust if font size is adjusted */
+    }
+}
+.fa {
+    color: #aaa;
+}

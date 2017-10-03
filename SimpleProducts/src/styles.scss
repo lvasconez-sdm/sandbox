@@ -1,0 +1,92 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+$footer-height: 60px;
+$footer-height-sm: 100px;
+
+html, body {
+    font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin-bottom: -$footer-height;
+    @include grid-md {
+        margin-bottom: -$footer-height-sm;
+    }
+}
+
+.container {
+    padding-top: 24px !important; /* NOTE: pt-0 added as well */
+    @include grid-lg {
+        padding-bottom: 24px; /* DELETE ME: this is just for testing */
+    }      
+    @include grid-lg {
+        width: 100%;
+        max-width: 100%;
+    }      
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+.wee-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+}
+.font-narrow {
+    font-family: 'Arial Narrow', Arial, sans-serif; 
+    font-stretch: condensed;
+    @include grid-xs {
+        font-size: .9em;
+    }
+}
+label {
+    font-size: .8em; /* this is not responsive */
+    color: rgb(0, 58, 93);
+    font-weight: bold;
+}
+.btn-group,
+.btn-group .btn {
+    color: rgb(0, 58, 93);
+    background-color: white;
+    border-color: #777;
+    border: 1;
+    border-radius: 0;
+    border-image-width: 0;
+    outline-style: none;
+    outline-width: 0;
+    box-shadow: 0;
+}
+.btn-xs-block {
+    @include grid-xs {
+        display: block;
+        width: 100%;
+    }
+}
+
+.card.bg-warning {
+    border: 1px solid #aaaa00;
+}
+.card.bg-danger {
+    border: 1px solid #ff0000;
+}
